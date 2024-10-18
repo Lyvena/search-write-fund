@@ -1,13 +1,28 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Header from '../components/Header';
+import SearchBar from '../components/SearchBar';
+import ResultsList from '../components/ResultsList';
+import ChatInterface from '../components/ChatInterface';
+import Footer from '../components/Footer';
+
+const queryClient = new QueryClient();
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <QueryClientProvider client={queryClient}>
+      <div className="min-h-screen flex flex-col bg-gray-100">
+        <Header />
+        <main className="flex-grow container mx-auto px-4 py-8">
+          <SearchBar />
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <ResultsList />
+            <ChatInterface />
+          </div>
+        </main>
+        <Footer />
       </div>
-    </div>
+    </QueryClientProvider>
   );
 };
 
