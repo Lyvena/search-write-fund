@@ -2,6 +2,7 @@ import React from 'react';
 import { Info, LogIn } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
+import Navigation from './Navigation';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
@@ -12,6 +13,7 @@ const Header = () => {
           <Logo />
         </Link>
         <div className="flex items-center space-x-4">
+          <Navigation />
           <Button variant="ghost" className="text-white hover:text-white hover:bg-blue-700">
             <Info className="mr-2 h-4 w-4" />
             About
