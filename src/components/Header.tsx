@@ -1,15 +1,28 @@
 import React from 'react';
-import { Info } from 'lucide-react';
+import { Info, LogIn } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import Logo from './Logo';
+import { Button } from '@/components/ui/button';
 
 const Header = () => {
   return (
     <header className="bg-blue-600 text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-2xl font-bold">AI-PGF Assistant</h1>
-        <button className="flex items-center space-x-1 bg-blue-700 hover:bg-blue-800 px-3 py-2 rounded-md transition-colors">
-          <Info size={18} />
-          <span>About</span>
-        </button>
+        <Link to="/" className="hover:opacity-90 transition-opacity">
+          <Logo />
+        </Link>
+        <div className="flex items-center space-x-4">
+          <Button variant="ghost" className="text-white hover:text-white hover:bg-blue-700">
+            <Info className="mr-2 h-4 w-4" />
+            About
+          </Button>
+          <Link to="/auth">
+            <Button variant="secondary" className="bg-white text-blue-600 hover:bg-blue-50">
+              <LogIn className="mr-2 h-4 w-4" />
+              Sign In
+            </Button>
+          </Link>
+        </div>
       </div>
     </header>
   );
